@@ -191,7 +191,7 @@ model OtpChallenge {
 ### 2. Clone and Setup Environment
 
 ```bash
-git clone <repo-url>
+git clone https://github.com/aaradhychinche-alt/MiniLedger.git
 cd MiniLedger
 
 # Copy environment template for backend

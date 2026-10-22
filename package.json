@@ -1,0 +1,30 @@
+{
+  "name": "miniledger",
+  "version": "1.0.0",
+  "description": "MiniLedger — Full-Stack Loan & Repayment Tracker for Friends",
+  "private": true,
+  "workspaces": [
+    "server",
+    "apps/mobile"
+  ],
+  "scripts": {
+    "dev:server": "npm --prefix server run dev",
+    "dev:mobile": "npm --prefix apps/mobile run start",
+    "build:server": "npm --prefix server run build",
+    "test:server": "npm --prefix server test",
+    "lint": "npm --prefix server run lint && npm --prefix apps/mobile run lint",
+    "seed": "npm --prefix server run prisma:seed",
+    "docker:up": "docker compose up -d",
+    "docker:down": "docker compose down"
+  },
+  "keywords": [
+    "react-native",
+    "expo",
+    "express",
+    "prisma",
+    "postgresql",
+    "typescript"
+  ],
+  "author": "",
+  "license": "ISC"
+}

@@ -6,7 +6,13 @@ Designed with a modern fintech aesthetic (charcoal typography, emerald green acc
 
 ---
 
-## 📸 Screenshots & Highlights
+## 🎥 Demo Video
+
+A 2-minute walkthrough of MiniLedger running end to end: phone + mock OTP login, dashboard summary, overdue highlighting, recording a repayment, and adding a loan with a receipt photo.
+
+▶️ [Watch the demo](https://drive.google.com/file/d/1PnJyqL2SLAIAI6ayl93x0fg3wGeOSSOW/view?usp=sharing)
+
+	⁠Recorded from the Expo web build in a phone-sized window, against the real Node.js + PostgreSQL backend.
 
 - **Phone Number Authentication with Mock OTP**: Validates 10-digit Indian mobile numbers (`+91`), logs a cryptographically secure 6-digit OTP to the dev console, and stores a hashed challenge with expiry.
 - **Fintech Dashboard**: Prominently displays Outstanding Balance, Total Lent, Total Repaid, and Overdue amounts calculated dynamically from PostgreSQL decimals.

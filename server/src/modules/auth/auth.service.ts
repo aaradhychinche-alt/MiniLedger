@@ -1,4 +1,6 @@
 import crypto from 'crypto';
+import fs from 'fs';
+import path from 'path';
 import jwt from 'jsonwebtoken';
 import { prisma } from '../../config/database';
 import { env } from '../../config/env';
@@ -51,6 +53,18 @@ export class AuthService {
     // Dev server log
     const masked = maskPhoneNumber(normalizedPhone);
     logger.otp(masked, otp);
+
+    if (env.NODE_ENV !== 'production') {
+      try {
+        const uploadsDir = path.resolve(__dirname, '../../../uploads');
+        if (!fs.existsSync(uploadsDir)) {
+          fs.mkdirSync(uploadsDir, { recursive: true });
+        }
+        fs.writeFileSync(path.join(uploadsDir, 'dev-otp.txt'), otp, 'utf-8');
+      } catch (err) {
+        // Ignore file write errors in restricted environments
+      }
+    }
 
     return {
       phoneNumber: normalizedPhone,

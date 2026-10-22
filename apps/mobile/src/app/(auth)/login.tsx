@@ -197,6 +197,28 @@ export default function LoginScreen() {
                   style={styles.otpInput}
                 />
 
+                <TouchableOpacity
+                  style={styles.demoFillButton}
+                  onPress={async () => {
+                    try {
+                      const res = await fetch('http://localhost:4000/uploads/dev-otp.txt');
+                      if (res.ok) {
+                        const code = (await res.text()).trim();
+                        if (code && code.length === 6) {
+                          setOtp(code);
+                          setErrorMessage(null);
+                        }
+                      }
+                    } catch {
+                      // ignore
+                    }
+                  }}
+                >
+                  <Text style={styles.demoFillText}>
+                    ⚡ Auto-Fill Dev Console OTP
+                  </Text>
+                </TouchableOpacity>
+
                 <PrimaryButton
                   title={isLoading ? 'Verifying...' : 'Verify & Continue'}
                   onPress={handleVerifyOtp}
